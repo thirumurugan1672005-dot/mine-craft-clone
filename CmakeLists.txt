@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.16)
+project(MinecraftClone)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# ADD THIS LINE — fixes the MSVCRT warning
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+
+include_directories(
+    include
+    include/glfw-3.5.1/include
+)
+
+add_executable(MinecraftClone
+    src/main.cpp
+    src/glad.c
+)
+
+target_link_libraries(MinecraftClone
+    ${CMAKE_SOURCE_DIR}/include/glfw-3.5.1/lib-vc2022/glfw3.lib
+    opengl32
+)
